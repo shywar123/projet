@@ -20,7 +20,7 @@ SDL_Rect positionFond;
 #define HAUTEUR_FENETRE 1000
 
 void init_backgroung() ;
-int aff_background(int argc, char *argv[])
+int aff_background(int argc, char *argv[]);
 
 #endif
 
