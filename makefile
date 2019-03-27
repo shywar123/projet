@@ -1,11 +1,7 @@
-prog:main.o menu.o
-	gcc main.o menu.o -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -o prog -g 
+programme:main.o enigme.o
+	gcc main.o enigme.o -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -o programme -g 
 
 main.o: main.c 
 	gcc -c main.c -g
-menu.o:menu.c
-	gcc -c menu.c -g
-
-
-
-
+enigme.o:enigme.c
+	gcc -c enigme.c -g
