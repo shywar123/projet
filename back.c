@@ -30,7 +30,7 @@ int aff_background(int argc, char *argv[])
     ecran = SDL_SetVideoMode(800, 600, 32, SDL_HWSURFACE);
     SDL_WM_SetCaption("Chargement d'images en SDL", NULL);
 
-    imageDeFond = SDL_LoadBMP("background.bmp");
+    imageDeFond = SDL_LoadBMP("background3.bmp");
     
     SDL_BlitSurface(imageDeFond, NULL, ecran, &positionFond);
 
