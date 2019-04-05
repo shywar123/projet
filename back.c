@@ -6,41 +6,20 @@
 #include<SDL/SDL_image.h>
 #include<SDL/SDL_ttf.h>
 #include "back.h"
-
-
-void int_background()
+void init_background (background *fond )
 {
 
-SDL_Surface *ecran = NULL;
+fond->positionFond.x=0 ;
+fond->positionFond.y=0 ; 
+fond->imageDeFond = SDL_LoadBMP("background3.bmp");
 
-SDL_Surface *imageDeFond = NULL;
 }
 
-
-int aff_background(int argc, char *argv[])
+void afficher_background (SDL_Surface *screen, background *fond)
 {
-    
-    SDL_Rect positionFond;
 
-    positionFond.x = 0;
-    positionFond.y = 0;
-
-    SDL_Init(SDL_INIT_VIDEO);
-
-    ecran = SDL_SetVideoMode(800, 600, 32, SDL_HWSURFACE);
-    SDL_WM_SetCaption("Chargement d'images en SDL", NULL);
-
-    imageDeFond = SDL_LoadBMP("background3.bmp");
-    
-    SDL_BlitSurface(imageDeFond, NULL, ecran, &positionFond);
-
-    SDL_Flip(ecran);
-    pause();
-
-    SDL_FreeSurface(imageDeFond); 
-    SDL_Quit();
-
-    return EXIT_SUCCESS;
+SDL_BlitSurface(fond->imageDeFond,NULL,screen,&fond->positionFond);
+SDL_Flip(screen); 
 }
 
 
