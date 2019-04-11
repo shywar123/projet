@@ -1,27 +1,72 @@
+#include<stdio.h>
 #include<stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include "enigme.h"
+#include<string.h>
+#include <SDL/SDL.h>
+#include <SDL/SDL_image.h>
+#include "enig.h"
+#include<time.h>
 
 int main()
-{
-SDL_Surface *ecran = NULL;
-int continuer =1,random;
-enigme back;
-SDL_Event event; 
-random=initialiser_enigme(&back);
-SDL_Init(SDL_INIT_VIDEO);
-ecran=SDL_SetVideoMode(800,450,32,SDL_HWSURFACE |SDL_DOUBLEBUF);
-afficher_enigme(ecran,&back);
- while(continuer)
-{
-SDL_PollEvent(&event);
-switch(event.type)
-{
-continuer=0;
-break;
-}
-}
-SDL_FreeSurface(back.fondenigme);
-return 0;
+{ 
+
+	SDL_Surface *screen;
+	enigme  e;
+	int s,r,run =1,running=1,alea;
+	char image[30]="";
+	SDL_Event event;
+    srand(time(NULL));
+   
+	 
+	 SDL_Init ( SDL_INIT_VIDEO ) ;
+
+
+
+	 screen=SDL_SetVideoMode(1024,630,32,SDL_HWSURFACE  |  SDL_DOUBLEBUF );
+	 init_enigme(&e);
+	
+	 while (run)
+	 {
+	    running=1,r=0 ;
+	     SDL_PollEvent(&event);
+           switch(event.type)
+            {
+              case SDL_QUIT:
+                run = 0;
+			  break ;
+            }	
+        	
+      generate_afficher ( screen  , image ,&e,&alea) ;
+	        
+
+      s=solution_e (image );
+			do{
+			r=resolution (&running,&run);
+			}while((r>3 || r<1) && running!=0) ;
+			
+			
+      while(running){
+
+				afficher_resultat (screen,s,r,&e) ;
+			       SDL_WaitEvent(&event);
+                     switch(event.type)
+                       {
+					     case SDL_QUIT :
+                              running =0 ;
+						      run=0 ;
+					     break ;
+                         case SDL_KEYDOWN :
+						    
+                             switch( event.key.keysym.sym )
+                                  {
+			                        case  SDLK_ESCAPE: 
+			                           running= 0 ;
+			                        break ;
+			                      }
+						 break ;
+                       }
+                    } 	
+   }
+      SDL_FreeSurface(screen);
+      SDL_Quit();
+	return 0;
 }
