@@ -10,6 +10,7 @@ perso->pospersonnage.y=330;
 perso->personnage = IMG_Load("perso12.png");
 }
 
+
 void initialiser_background(background *back)
 {
 back->positionecran.x=0;
@@ -27,7 +28,7 @@ SDL_BlitSurface(perso->personnage , NULL , ecran, &perso->pospersonnage);
 void affichage_background(SDL_Surface *ecran,background *back)
 {
 SDL_BlitSurface(back->image , NULL , ecran , &back->positionecran);
-SDL_BlitSurface(back->imageM , NULL , ecran , &back->positionecran);
+
 }
 
 
@@ -122,5 +123,38 @@ collision=1;
 i++;
 }
 return collision;
-}
+} 
+
+//void gestion_vie (personnage *perso ,int *k , int *k1 ,  SDL_Surface *ecran , int *run,SDL_Color rouge )
+//{
+//	if (perso->nombre_vie==3 && (*k1)==0)
+//	{perso->affichage_vie=IMG_Load("vie3.png");
+//	(*k1)=1;
+//	}
+  //     
+	//if (perso->nombre_vie==2 && (*k)==0)
+	//{
+
+//	perso->affichage_vie=IMG_Load("vie2.png");
+//	(*k)=1;
+
+//	}
+
+//	if (perso->nombre_vie==1 && (*k1)==0)
+//	{perso->affichage_vie=IMG_Load("vie1.png");
+//	(*k1)=1;
+//	}
+
+//	if (perso->nombre_vie==0)
+//	{
+		
+//	perso->affichage_vie=IMG_Load("vie0.png");
+//	}
+
+//		SDL_Flip(ecran);
+//		SDL_Delay(1000);
+
+//	}
+//
+//}
 

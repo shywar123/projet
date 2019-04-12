@@ -7,6 +7,7 @@ SDL_Surface *personnage;
 SDL_Rect pospersonnage;
 }personnage;
 
+
 typedef struct
 {
 SDL_Surface *image;
@@ -23,6 +24,7 @@ void affichage_background(SDL_Surface *ecran,background *back);
 SDL_Color GetPixel(SDL_Surface *pSurface,int x,int y);
 int CollisionParfaite_droite(personnage perso,background back,int r,int g,int b);
 int CollisionParfaite_gauche(personnage perso,background back,int r,int g,int b);
+//void gestion_vie (personnage *perso ,int *k , int *k1 ,  SDL_Surface *ecran , int *run,SDL_Color rouge );
 
 
 
