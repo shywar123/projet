@@ -18,14 +18,16 @@ enum STATE {WAITING, FOLLOWING, ATTACKING};
 typedef struct 
 {
 	//int vie; 
-	SDL_Surface *image ;
-	SDL_Rect pos_es;
+	SDL_Surface *image;
+	SDL_Surface *walk[4] ;
+	SDL_Surface *back[4] ; 	
+SDL_Rect pos_es;
 	STATE STATE;
 
 }ennemi;
 
 void initialiser_es (ennemi *es);
 void afficher_es(ennemi *es,SDL_Surface *ecran);
-
+void dep_es(ennemi *es,SDL_Surface *ecran);
 
 #endif // ENNEMI_H_INCLUDED

@@ -1,22 +1,17 @@
-#ifndef PERSO_H_INCLUDED
-#define PERSO_H_INCLUDED
-#include <stdlib.h>
-#include <stdio.h>
-#include <SDL/SDL.h>
-#include <SDL/SDL_image.h>
-#include <SDL/SDL_mixer.h>
-#include <SDL/SDL_ttf.h>
-typedef struct
+# ifndef PERSO_H_INCLUDED
+# define  PERSO_H_INCLUDED
+
+typedef struct 
 {
-         SDL_Surface* image;
-	 SDL_Rect positionexplo;
+         SDL_Surface *image;
+	 SDL_Rect positionp;
 
 
-}joueur;
+}personage;
 
-void init_persoP(joueur *p);/* initialisation joueur*/
-void afficherjoueur(joueur *j,SDL_Surface *ecran);/*affichage joueur*/
+void  init_persoP(personage *p); 
+void  afficherjoueur(personage *p, SDL_Surface *ecran); 
+void deplacerpreso(personage *p,SDL_Surface *ecarn);
+void scroll(SDL_Rect *camera,SDL_Surface *ecran,SDL_Event *e,personage *p);
 
-
-
-#endif
+# endif
