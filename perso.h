@@ -11,7 +11,8 @@ typedef struct
 
 void  init_persoP(personage *p); 
 void  afficherjoueur(personage *p, SDL_Surface *ecran); 
-void deplacerpreso(personage *p,SDL_Surface *ecarn);
-void scroll(SDL_Rect *camera,SDL_Surface *ecran,SDL_Event *e,personage *p);
+void scroll(SDL_Surface *image,SDL_Rect *camera,SDL_Surface *ecran,SDL_Event *e,personage *p);
+
+
 
 # endif

@@ -2,32 +2,50 @@
 #include "SDL/SDL.h"
 #include <SDL/SDL_image.h>
 #include <SDL/SDL_mixer.h>
-#include "objeeet.h"
+#include "perso.h"
 int main()
-{SDL_Surface *ecran=NULL,*image =NULL;
-SDL_Event e;
-objet ob;
-objet ob1;
-objet ob2;
-SDL_Rect positionecran;
-int continuer =1;
-positionecran.x=0;
-positionecran.y=0;
-image =SDL_LoadBMP("background3.bmp");
-initialiser_ob (&ob);
-initialiser_ob1 (&ob1);
-initialiser_ob2 (&ob2);
-SDL_Init(SDL_INIT_VIDEO);
-ecran = SDL_SetVideoMode(1000, 550, 32, SDL_HWSURFACE |SDL_DOUBLEBUF);
+{
+    
+    SDL_Surface *ecran =NULL;
+    SDL_Surface *image =NULL;
+    SDL_Rect positionecran;
+	personage p;
+    char pause;
+    int continuer =1,curseur=1;
+    SDL_Event e;
+    image =SDL_LoadBMP("background.bmp");
+    
+    positionecran.x=0;
+    positionecran.y=0;
+    
+
+     init_persoP(&p);
+     
+
+    SDL_Init(SDL_INIT_VIDEO);
+ 
+
+	SDL_Init(SDL_INIT_EVERYTHING);
+	
+	SDL_Rect camera ;
+	camera.x=0;
+	camera.y=0;
+	camera.w=900;
+	camera.h=550;
+        
+   
+    ecran = SDL_SetVideoMode(900, 550, 32, SDL_HWSURFACE |SDL_DOUBLEBUF);
     while (continuer)
     {
-   SDL_WaitEvent(&e);
-        SDL_BlitSurface(image, NULL, ecran, &positionecran);
+  
+        SDL_BlitSurface(image, &camera, ecran, &positionecran);
 SDL_Flip(ecran);
-afficher_ob(&ob,ecran);
-afficher_ob1(&ob1,ecran);
-afficher_ob2(&ob2,ecran);
-}
-return 0;
+        afficherjoueur(&p,ecran);
+        
+
+	scroll(image,&camera,ecran,&e,&p);
+
 }
 
+    return 0;
+}
