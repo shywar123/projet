@@ -6,6 +6,7 @@
 #include <SDL/SDL_ttf.h>
 #include <SDL/SDL_mixer.h>
 #include <math.h>
+#include "trigo.h"
 
 int collusion_trigonometrique_circonscrit(SDL_Surface *image1, SDL_Surface *image2,SDL_Rect position_image1,SDL_Rect position_image2)
 {

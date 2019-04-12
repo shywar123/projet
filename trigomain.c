@@ -6,6 +6,7 @@
 #include <SDL/SDL_ttf.h>
 #include <SDL/SDL_mixer.h>
 #include <math.h>
+#include "trigo.h"
 
 
 
