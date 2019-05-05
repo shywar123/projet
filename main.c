@@ -1,51 +1,69 @@
-#include <stdio.h>
-#include "SDL/SDL.h"
+#include <stdlib.h>
 #include <SDL/SDL_image.h>
-#include <SDL/SDL_mixer.h>
-#include "perso.h"
-int main()
+#include <stdio.h>
+#include <SDL/SDL.h>
+#include <SDL/SDL_rotozoom.h>
+//#include <SDL_gfxBlitFunc.h>
+ 
+#define TEMPS       30 // Le temps qu'il y a entre chaque augmentation de l'angle.
+ 
+int main(int argc, char *argv[])
 {
-    
-    SDL_Surface *ecran =NULL;
-    SDL_Surface *image =NULL;
-    SDL_Rect positionecran;
-	personage p;
-    char pause;
-    int continuer =1,curseur=1;
-    SDL_Event e;
-    image =SDL_LoadBMP("background.bmp");
-    
-    positionecran.x=0;
-    positionecran.y=0;
-    
-
-     init_persoP(&p);
-     
-
+    SDL_Surface *ecran = NULL, *image = NULL, *rotation = NULL;
+    SDL_Rect rect;
+    SDL_Event event;
+    double angle = 0,zoom=0;
+ 
+    int continuer = 1;
+    int tempsPrecedent = 0, tempsActuel = 0, zommy=0;
+ 
     SDL_Init(SDL_INIT_VIDEO);
  
-
-	SDL_Init(SDL_INIT_EVERYTHING);
-	
-	SDL_Rect camera ;
-	camera.x=0;
-	camera.y=0;
-	camera.w=900;
-	camera.h=550;
-        
-   
-    ecran = SDL_SetVideoMode(900, 550, 32, SDL_HWSURFACE |SDL_DOUBLEBUF);
-    while (continuer)
+    ecran = SDL_SetVideoMode(500, 500, 32, SDL_HWSURFACE);
+    SDL_WM_SetCaption("Faire des rotations avec SDL_gfx", NULL);
+ 
+    image =IMG_Load("Snake.png");
+ 
+    rect.x =  150;
+    rect.y =  150;
+ 
+    while(continuer)
     {
-  
-        SDL_BlitSurface(image, &camera, ecran, &positionecran);
-SDL_Flip(ecran);
-        afficherjoueur(&p,ecran);
-        
-
-	scroll(image,&camera,ecran,&e,&p);
-
+        SDL_PollEvent(&event);
+        switch(event.type)
+        {
+            case SDL_QUIT:
+                continuer = 0;
+                break;
+        }
+ 
+        tempsActuel = SDL_GetTicks();
+        if (tempsActuel - tempsPrecedent > TEMPS)
+        {
+            angle += 5; //On augmente l'angle pour que l'image tourne sur elle-même.
+ 		zoom += 0.005 ; 
+            tempsPrecedent = tempsActuel;
+        }
+        else
+        {
+            SDL_Delay(TEMPS - (tempsActuel - tempsPrecedent));
+        }
+ 
+ 
+        SDL_FillRect(ecran, NULL, SDL_MapRGB(ecran->format, 255, 255, 255));
+ 
+        rotation = rotozoomSurface(image, angle,zoom, 5); //On transforme la surface image.
+ 
+        SDL_BlitSurface(rotation , NULL, ecran, &rect); //On affiche la rotation de la surface image.
+        SDL_FreeSurface(rotation); //On efface la surface rotation car on va la redéfinir dans la prochaine boucle. Si on ne le fait pas, cela crée une fuite de mémoire. 
+ 
+        SDL_Flip(ecran);
+    }
+ 
+    SDL_FreeSurface(ecran);
+    SDL_FreeSurface(image);
+    SDL_Quit();
+ 
+    return EXIT_SUCCESS;
 }
 
-    return 0;
-}
