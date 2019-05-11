@@ -1,0 +1,163 @@
+\hypertarget{gravite_8c}{}\section{gravite.\+c File Reference}
+\label{gravite_8c}\index{gravite.\+c@{gravite.\+c}}
+
+
+Testing Program.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L/\+S\+D\+L.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L/\+S\+D\+L\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L/\+S\+D\+L\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L/\+S\+D\+L\+\_\+mixer.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}gravite.\+h\char`\"{}}\newline
+Include dependency graph for gravite.\+c\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{gravite_8c_ac03b8314b6b63e055d6928073a58b722}{Init\+Sprite} (\hyperlink{structSprite}{Sprite} $\ast$Sp)
+\begin{DoxyCompactList}\small\item\em To initialize position . \end{DoxyCompactList}\item 
+void \hyperlink{gravite_8c_a448748eab3b1d765c3ee3707ea14e3cd}{Render} (\hyperlink{structSprite}{Sprite} $\ast$Sp, S\+D\+L\+\_\+\+Surface $\ast$screen)
+\begin{DoxyCompactList}\small\item\em To show the personage . \end{DoxyCompactList}\item 
+void \hyperlink{gravite_8c_af2955d289192ef9a9668f11687171a92}{Saute} (\hyperlink{structSprite}{Sprite} $\ast$Sp, float impulsion)
+\begin{DoxyCompactList}\small\item\em To do the saut . \end{DoxyCompactList}\item 
+void \hyperlink{gravite_8c_a0b4f7be50e68c12db1e85dd4f73d3019}{Controle\+Sol} (\hyperlink{structSprite}{Sprite} $\ast$Sp)
+\begin{DoxyCompactList}\small\item\em To control sol . \end{DoxyCompactList}\item 
+void \hyperlink{gravite_8c_a133bad634f39d9a20367a28868d870b0}{Gravite} (\hyperlink{structSprite}{Sprite} $\ast$Sp, float factgravite, float factsautmaintenu, Uint8 $\ast$keys)
+\begin{DoxyCompactList}\small\item\em To show the gravite. \end{DoxyCompactList}\item 
+void \hyperlink{gravite_8c_a01ae22b3b7daab264e503b0375cf87f8}{Evolue} (\hyperlink{structSprite}{Sprite} $\ast$Sp, Uint8 $\ast$keys)
+\begin{DoxyCompactList}\small\item\em To control the evolution of the hero. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Testing Program. 
+
+\begin{DoxyAuthor}{Author}
+shywar 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+mai 05, 2019
+\end{DoxyDate}
+Testing program for jump 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{gravite_8c_a0b4f7be50e68c12db1e85dd4f73d3019}\label{gravite_8c_a0b4f7be50e68c12db1e85dd4f73d3019}} 
+\index{gravite.\+c@{gravite.\+c}!Controle\+Sol@{Controle\+Sol}}
+\index{Controle\+Sol@{Controle\+Sol}!gravite.\+c@{gravite.\+c}}
+\subsubsection{\texorpdfstring{Controle\+Sol()}{ControleSol()}}
+{\footnotesize\ttfamily void Controle\+Sol (\begin{DoxyParamCaption}\item[{\hyperlink{structSprite}{Sprite} $\ast$}]{Sp }\end{DoxyParamCaption})}
+
+
+
+To control sol . 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Sp} & the \hyperlink{structSprite}{Sprite} \\
+\hline
+{\em SP} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{gravite_8c_a01ae22b3b7daab264e503b0375cf87f8}\label{gravite_8c_a01ae22b3b7daab264e503b0375cf87f8}} 
+\index{gravite.\+c@{gravite.\+c}!Evolue@{Evolue}}
+\index{Evolue@{Evolue}!gravite.\+c@{gravite.\+c}}
+\subsubsection{\texorpdfstring{Evolue()}{Evolue()}}
+{\footnotesize\ttfamily void Evolue (\begin{DoxyParamCaption}\item[{\hyperlink{structSprite}{Sprite} $\ast$}]{Sp,  }\item[{Uint8 $\ast$}]{keys }\end{DoxyParamCaption})}
+
+
+
+To control the evolution of the hero. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Sp} & and Uint8$\ast$ keys \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nothing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{gravite_8c_a133bad634f39d9a20367a28868d870b0}\label{gravite_8c_a133bad634f39d9a20367a28868d870b0}} 
+\index{gravite.\+c@{gravite.\+c}!Gravite@{Gravite}}
+\index{Gravite@{Gravite}!gravite.\+c@{gravite.\+c}}
+\subsubsection{\texorpdfstring{Gravite()}{Gravite()}}
+{\footnotesize\ttfamily void Gravite (\begin{DoxyParamCaption}\item[{\hyperlink{structSprite}{Sprite} $\ast$}]{Sp,  }\item[{float}]{factgravite,  }\item[{float}]{factsautmaintenu,  }\item[{Uint8 $\ast$}]{keys }\end{DoxyParamCaption})}
+
+
+
+To show the gravite. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Sp} & and factgravite and factsautmaintenu and Uint8$\ast$ keys \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nothing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{gravite_8c_ac03b8314b6b63e055d6928073a58b722}\label{gravite_8c_ac03b8314b6b63e055d6928073a58b722}} 
+\index{gravite.\+c@{gravite.\+c}!Init\+Sprite@{Init\+Sprite}}
+\index{Init\+Sprite@{Init\+Sprite}!gravite.\+c@{gravite.\+c}}
+\subsubsection{\texorpdfstring{Init\+Sprite()}{InitSprite()}}
+{\footnotesize\ttfamily void Init\+Sprite (\begin{DoxyParamCaption}\item[{\hyperlink{structSprite}{Sprite} $\ast$}]{Sp }\end{DoxyParamCaption})}
+
+
+
+To initialize position . 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Sp} & the \hyperlink{structSprite}{Sprite} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nothing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{gravite_8c_a448748eab3b1d765c3ee3707ea14e3cd}\label{gravite_8c_a448748eab3b1d765c3ee3707ea14e3cd}} 
+\index{gravite.\+c@{gravite.\+c}!Render@{Render}}
+\index{Render@{Render}!gravite.\+c@{gravite.\+c}}
+\subsubsection{\texorpdfstring{Render()}{Render()}}
+{\footnotesize\ttfamily void Render (\begin{DoxyParamCaption}\item[{\hyperlink{structSprite}{Sprite} $\ast$}]{Sp,  }\item[{S\+D\+L\+\_\+\+Surface $\ast$}]{screen }\end{DoxyParamCaption})}
+
+
+
+To show the personage . 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scren} & the screen and Sp th \hyperlink{structSprite}{Sprite} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nothing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{gravite_8c_af2955d289192ef9a9668f11687171a92}\label{gravite_8c_af2955d289192ef9a9668f11687171a92}} 
+\index{gravite.\+c@{gravite.\+c}!Saute@{Saute}}
+\index{Saute@{Saute}!gravite.\+c@{gravite.\+c}}
+\subsubsection{\texorpdfstring{Saute()}{Saute()}}
+{\footnotesize\ttfamily void Saute (\begin{DoxyParamCaption}\item[{\hyperlink{structSprite}{Sprite} $\ast$}]{Sp,  }\item[{float}]{impulsion }\end{DoxyParamCaption})}
+
+
+
+To do the saut . 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Sp} & the \hyperlink{structSprite}{Sprite} and impulsion \\
+\hline
+{\em Sp} & and impulusion \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
